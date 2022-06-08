@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // т.к protected конструктор нужен для hibernate
 @ToString(callSuper = true, exclude = {"password"})
-public class User extends AbstractPersistable<Long> {
+public class User extends BaseEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     @Email

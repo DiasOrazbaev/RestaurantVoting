@@ -10,8 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 
 @SpringBootApplication
@@ -25,7 +24,9 @@ public class JavaOpsApplication implements ApplicationRunner {
 
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
+        repository.save(new User("orazbaevdev@gmail.com", "Dias", "Orazbaev", "1werqwerf4", new HashSet<>(Collections.singleton(Role.ROLE_ADMIN))));
+        repository.save(new User("Jackmna@Mail.ru", "Jack", "Ma", "asdf2@fiifds", new HashSet<>(Collections.singleton(Role.ROLE_USER))));
         log.info(repository.findAll().toString());
     }
 }
